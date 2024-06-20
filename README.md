@@ -2,8 +2,23 @@
 - create react app
 - configured tailwindcss 
 - header
+- routing of app
 - Login form
 - sign up form
+- form validation
+- useRef hook
+- firebase setup 
+- deploying to produnction
+-  create signup for user
+- implement sign in user api 
+- created redux store with user slice
+- implemented sign out
+- update profile 
+- fetch movies from tmdb
+
+
+
+
 
 
 
@@ -28,4 +43,10 @@
 
 # to install routes
  - run npm i -D react-router-dom
+
+# to deploy 
+- npm install -g firebase-tools
+- firebase login
+- firebase init (then select hosting, also select build folder)
+- firebase deploy
 
