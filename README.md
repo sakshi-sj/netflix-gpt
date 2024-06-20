@@ -1,7 +1,9 @@
 # Netflix GPT
 - create react app
 - configured tailwindcss 
--
+- header
+- Login form
+- sign up form
 
 
 
@@ -22,4 +24,8 @@
 - netflix gpt
     - search bar
     - movie suggestions
+
+
+# to install routes
+ - run npm i -D react-router-dom
 
