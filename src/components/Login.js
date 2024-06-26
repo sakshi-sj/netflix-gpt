@@ -4,10 +4,10 @@ import checkValidData from "../utils/validate"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import {useNavigate } from 'react-router-dom'
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import {addUser, removeUser} from "../utils/userSlice"
+import { USER_AVATAR } from '../utils/constants';
 
 
 const Login = () => {
@@ -16,7 +16,6 @@ const Login = () => {
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleButtonClick = () => {
     // Validate the form data
@@ -29,11 +28,10 @@ const Login = () => {
     // Signed up 
     const user = userCredential.user;
     updateProfile(user, {
-      displayName: name.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+      displayName: name.current.value, photoURL: USER_AVATAR
     }).then(() => {
       const {uid,email,displayname} = auth.currentUser;
       dispatch(addUser({uid:uid,email:email,displayname:displayname}))
-      navigate("/browse")
     }).catch((error) => {
       setErrorMessage(error.message)
     });
@@ -49,7 +47,6 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    navigate("/browse")
     // ...
   })
   .catch((error) => {
